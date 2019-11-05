@@ -1,10 +1,10 @@
 
-const path = require('path');
+const path = require('path')
 
-const DEV_MODE = 'development';
-const PROD_MODE = 'production';
+const DEV_MODE = 'development'
+const PROD_MODE = 'production'
 
-const isDevMode = process.env.NODE_ENV !== PROD_MODE;
+const isDevMode = process.env.NODE_ENV !== PROD_MODE
 
 const commonConfig = {
   entry: path.resolve(__dirname, '../src/index.ts'),
@@ -22,7 +22,7 @@ const commonConfig = {
       }
     ]
   },
-};
+}
 
 const devConfig = {
   ...commonConfig,
