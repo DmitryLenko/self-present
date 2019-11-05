@@ -1,6 +1,5 @@
 
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/client/index.tsx'),
@@ -17,8 +16,5 @@ module.exports = {
         use: 'babel-loader',
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin()
-  ]
+  }
 }
