@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app base 1`] = `
+<HelloWorld>
+  <div>
+    <div>
+      Hello world
+    </div>
+  </div>
+</HelloWorld>
+`;

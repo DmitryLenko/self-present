@@ -5,27 +5,38 @@
     "es6": true
   },
   "parserOptions": {
-    "ecmaVersion": 9
+    "ecmaVersion": 9,
+    "sourceType": "module"
   },
   "extends": [
     "eslint:recommended"
   ],
+  "rules": {
+    "semi": ["error", "never",  { "beforeStatementContinuationChars": "always"} ]
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
-      "plugins": ["@typescript-eslint"],
-      "parserOptions": {
-        "project": "./tsconfig.json"
-      },
-      "parser": "@typescript-eslint/parser",
       "extends": [
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
-      ]
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": [
+        "react",
+        "@typescript-eslint"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json",
+        "jsx": true
+      },
+      "settings": {
+        "react": {
+          "pragma": "React",
+          "version": "detect"
+        }
+      }
     }
-  ],
-  "rules": {
-    "semi": ["error", "never",  { "beforeStatementContinuationChars": "always"} ]
-  }
+  ]
 }
