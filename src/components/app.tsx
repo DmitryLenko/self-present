@@ -1,3 +1,7 @@
 import React from 'react'
 
-export const HelloWorld = () => <div>Hello world</div>
+export const HelloWorld = () => (
+         <div>
+           <div>Hello world</div>
+         </div>
+       );

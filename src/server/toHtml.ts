@@ -3,7 +3,7 @@ const toHtml = ({ body }: { body: string }) => `
   <html>
     <head>
     </head>
-    <body style="margin:0">
+    <body>
       ${body}
     </body>
     <script src="dist/client/index.js" defer></script>
