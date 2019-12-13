@@ -1,7 +1,9 @@
 import React from 'react'
 
+import './app.scss'
+
 export const HelloWorld = () => (
          <div>
-           <div>Hello world</div>
+           <div className="test">Hello world</div>
          </div>
-       );
+       )

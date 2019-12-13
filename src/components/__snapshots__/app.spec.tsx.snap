@@ -3,7 +3,9 @@
 exports[`app base 1`] = `
 <HelloWorld>
   <div>
-    <div>
+    <div
+      className="test"
+    >
       Hello world
     </div>
   </div>
