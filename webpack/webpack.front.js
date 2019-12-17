@@ -19,7 +19,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "My app",
       filename: "base.html",
-      template: path.resolve(__dirname, "../src/templates/base.html")
+      template: path.resolve(__dirname, "../templates/base.html")
     }),
     new HTMLInlineCSSWebpackPlugin()
   ],
