@@ -19,7 +19,7 @@ module.exports = {
         exclude: /node_modules/,
         use: "babel-loader"
       },
-      { test: /\.s[ac]ss$/i, loader: "ignore-loader" }
+      { test: /\.(png|svg|jpg|gif|s[ac]ss)$/i, loader: "ignore-loader" }
     ]
   }
 }
