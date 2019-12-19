@@ -26,11 +26,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: "babel-loader"
-      },
-      {
         test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,

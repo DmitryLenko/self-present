@@ -8,41 +8,47 @@ const PROD_MODE = 'production'
 
 const isDevMode = process.env.NODE_ENV !== PROD_MODE
 
-const commonConfig = {
-  resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
-  }
-}
-
-const nodemonConfig = {
-  plugins: [
-    new WebpackShellPlugin({
-      onBuildEnd: ["nodemon dist/server --watch dist/server"]
-    })
-  ]
-}
-
-const extendByMode = configs => configs.map(
-  config => {
-    if (isDevMode) {
-      return merge(
-        config,
-        commonConfig,
+const commonConfig = merge(
+  {
+    resolve: {
+      extensions: [".ts", ".tsx", ".js", ".jsx"]
+    },
+    module: {
+      rules: [
         {
-          devtool: "source-map",
-          mode: DEV_MODE
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: "babel-loader"
         }
-      )
+      ],
     }
-    return merge(
-      config,
-      commonConfig,
-      {
-        devtool: "source-map",
-        mode: DEV_MODE
-      }
-    )
-  }
+  },
+  isDevMode ? { devtool: "source-map", mode: DEV_MODE } : { mode: PROD_MODE }
 )
 
-module.exports = extendByMode([webpackForBackend, merge(webpackForFrontend, nodemonConfig)])
+const getNodemonConfig = () => {
+  if (isDevMode) {
+    return {
+      plugins: [
+        new WebpackShellPlugin({
+          onBuildEnd: ["nodemon dist/server --watch dist/server"]
+        })
+      ]
+    }
+  }
+  return {}
+}
+
+console.log(`start building in ${process.env.NODE_ENV} mode`)
+
+module.exports = [
+  merge(
+    webpackForBackend,
+    commonConfig,
+  ),
+  merge(
+    webpackForFrontend,
+    commonConfig,
+    getNodemonConfig()
+  )
+]
