@@ -33,6 +33,10 @@
           "pragma": "React",
           "version": "detect"
         }
+      },
+      "rules": {
+        "react/prop-types": "off",
+        "@typescript-eslint/no-empty-function": "off"
       }
     }
   ]

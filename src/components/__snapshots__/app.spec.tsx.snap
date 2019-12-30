@@ -1,13 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`app base 1`] = `
-<HelloWorld>
+<App>
   <div>
-    <div
-      className="test"
-    >
-      Hello world
+    <div>
+      1
     </div>
+    <button
+      onClick={[Function]}
+    >
+      increment
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      decrement
+    </button>
   </div>
-</HelloWorld>
+</App>
 `;

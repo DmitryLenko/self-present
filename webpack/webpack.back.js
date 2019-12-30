@@ -14,7 +14,21 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(png|svg|jpg|gif|s[ac]ss)$/i, loader: "ignore-loader" }
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: "[name]__[local]___[hash:base64:5]",
+              },
+              onlyLocals: true,
+            },
+          },
+        ]
+      },
+      { test: /\.(png|svg|jpg|gif)$/i, loader: "ignore-loader" }
     ]
   }
 }

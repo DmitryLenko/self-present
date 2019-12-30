@@ -11,7 +11,7 @@ const isDevMode = process.env.NODE_ENV !== PROD_MODE
 const commonConfig = merge(
   {
     resolve: {
-      extensions: [".ts", ".tsx", ".js", ".jsx"]
+      extensions: [".ts", ".tsx", ".js", ".jsx", ".scss"]
     },
     module: {
       rules: [

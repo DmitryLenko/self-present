@@ -27,4 +27,4 @@ COPY package.json .
 
 USER node
 
-CMD [ "npm", "run", "start" ]
+CMD [ "yarn", "run", "start" ]
