@@ -1,12 +1,18 @@
-import { CountType, INCREMENT, DECREMENT } from '../types/count.types'
+import { ADD, REMOVE, COPY } from '../types/tasks.types'
+import { Task } from '../../types/tasks.types'
 
-export const increment = (amount: CountType = 1) => ({
-  type: INCREMENT,
-  payload: amount,
+export const add = (item: Task) => ({
+  type: ADD,
+  payload: item
 } as const)
 
-export const decrement = (amount: CountType = 1) => ({
-  type: DECREMENT,
-  payload: amount,
+export const remove = (id: string) => ({
+  type: REMOVE,
+  payload: id,
+} as const)
+
+export const copy = (id: string) => ({
+  type: COPY,
+  payload: id,
 } as const)
 

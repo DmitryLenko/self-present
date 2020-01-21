@@ -1,19 +1,19 @@
 import React, { useCallback } from 'react'
-import cn from 'classnames'
-import { useSelector, useDispatch } from 'react-redux'
+// import cn from 'classnames'
+// import { useSelector, useDispatch } from 'react-redux'
 
-import { increment, decrement } from '../store/actions/count.actions'
-import { Increment, Decrement } from '../store/types/count.types'
-import { getCount } from '../store/selectors/count.selectors'
+// import { increment, decrement } from '../store/actions/count.actions'
+// import { Increment, Decrement } from '../store/types/tasks.types'
+// import { getCount } from '../store/selectors/add.selectors'
 
 import styles from './app.scss'
 
 import { TodoItem } from './item/item'
 
-const INCREMENT_AMOUNT = 1
+// const INCREMENT_AMOUNT = 1
 
-const incrementOne = increment(INCREMENT_AMOUNT)
-const decrementOne = decrement(INCREMENT_AMOUNT)
+// const incrementOne = increment(INCREMENT_AMOUNT)
+// const decrementOne = decrement(INCREMENT_AMOUNT)
 
 // const customHook = (action) => {
 //   const dispatch = useDispatch()

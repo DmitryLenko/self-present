@@ -12,7 +12,7 @@
     "dev": "cross-env NODE_ENV=development webpack -w --config ./webpack/webpack.config.js",
     "test": "jest",
     "update:snap": "jest --update-snapshot",
-    "lint": "tsc --noEmit --skipLibCheck && eslint src scripts --ext ts,tsx,js",
+    "lint": "eslint src scripts --ext ts,tsx,js",
     "lint:fix": "eslint src scripts --fix --ext ts,tsx,js"
   },
   "devDependencies": {
