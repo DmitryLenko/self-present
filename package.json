@@ -12,8 +12,8 @@
     "dev": "cross-env NODE_ENV=development webpack -w --config ./webpack/webpack.config.js",
     "test": "jest",
     "update:snap": "jest --update-snapshot",
-    "lint": "tsc --noEmit --skipLibCheck && eslint --ext ts,tsx,js src/* scripts/*",
-    "lint:fix": "eslint --fix --ext ts,tsx,js src/* scripts/*"
+    "lint": "tsc --noEmit --skipLibCheck && eslint src scripts --ext ts,tsx,js",
+    "lint:fix": "eslint src scripts --fix --ext ts,tsx,js"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
@@ -41,7 +41,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-react": "^7.17.0",
     "file-loader": "^5.0.2",
@@ -70,6 +70,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.3",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "reset-css": "^5.0.1"
   }
 }

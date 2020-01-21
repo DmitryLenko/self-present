@@ -1,4 +1,5 @@
 import React, { useCallback, memo } from 'react'
+import cn from 'classnames'
 
 import styles from './item.scss'
 
@@ -7,7 +8,7 @@ import { SimpleBtn } from './simpleBtn/simpleBtn'
 
 import { ItemProps } from './types'
 
-export const TodoItem: React.FC<ItemProps> = memo(function TodoItem({ content, itemId, countBeforeDone = 1 }) {
+export const TodoItem: React.FC<ItemProps> = memo(function TodoItem({ content, itemId, countBeforeDone = 1, className }) {
   const copyTask = useCallback(
     () => {
       console.log('copy', itemId)
@@ -23,18 +24,18 @@ export const TodoItem: React.FC<ItemProps> = memo(function TodoItem({ content, i
   )
 
   return (
-    <li className={styles.itemWrapper}>
-      <div className={styles.content}>
+    <li className={cn(styles.itemWrapper, className)}>
+      <div className={styles.padded}>
         {content}
       </div>
       {countBeforeDone > 1 ?
-        <CountingBtn itemId={itemId} countBeforeDone={countBeforeDone} /> :
-        <SimpleBtn itemId={itemId} />
+        <CountingBtn itemId={itemId} countBeforeDone={countBeforeDone} className={styles.padded} /> :
+        <SimpleBtn itemId={itemId} className={styles.padded} />
       }
-      <div>
+      <div className={styles.padded}>
         <button onClick={copyTask}>copy task</button>
       </div>
-      <div>
+      <div className={styles.padded}>
         <button onClick={deleteTask}>delete</button>
       </div>
     </li>

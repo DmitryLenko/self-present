@@ -1,3 +1,21 @@
-.test {
-  background: red;
+@import '~reset-css/sass/reset';
+
+@import '../styles/mixins';
+
+.mainWrapper {
+  padding: 20px;
+  box-sizing: content-box;
+  .stats {
+    @include base;
+    .statsItem {
+      padding: 5px 0;
+    }
+  };
+  .tasksListWrapper {
+    @include base;
+    .taskItemWrapper {
+      display: flex;
+      padding: 5px 0;
+    }
+  };
 }

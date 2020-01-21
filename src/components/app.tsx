@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import cn from 'classnames'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { increment, decrement } from '../store/actions/count.actions'
@@ -57,14 +58,14 @@ export const App: React.FC = () => {
     []
   )
   return (
-    <main className={styles.main}>
+    <main className={styles.mainWrapper}>
       <div className={styles.stats}>
-        <p className={styles.statsItem}>Done tasks:</p>
-        <p className={styles.statsItem}>Active tasks:</p>
+        <p className={styles.statsItem}>Done tasks: 0</p>
+        <p className={styles.statsItem}>Active tasks: 0</p>
       </div>
-      <ul>
+      <ul className={styles.tasksListWrapper}>
         {data.map(
-          item => <TodoItem key={item.id} itemId={item.id} content={item.content} countBeforeDone={item.countBeforeDone || 1}/>
+          item => <TodoItem key={item.id} itemId={item.id} content={item.content} countBeforeDone={item.countBeforeDone || 1} className={styles.taskItemWrapper} />
         )}
       </ul>
       <button onClick={addTask}>add</button>

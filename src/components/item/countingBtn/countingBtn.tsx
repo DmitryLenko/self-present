@@ -1,25 +1,32 @@
 import React, { useCallback, useState, memo } from 'react'
+import cn from 'classnames'
 
 import { ItemProps } from '../types'
 import { ItemAction } from '../itemAction/itemAction'
 
-export const CountingBtn: React.FC<Pick<ItemProps, 'itemId' | 'countBeforeDone'>> = memo(function CountingBtn({ countBeforeDone, itemId }) {
+import styles from './styles.scss'
 
-  const [times, setTimes] = useState(0)
+export const CountingBtn: React.FC<Pick<ItemProps, 'itemId' | 'countBeforeDone' | 'className'>> = memo(
+  function CountingBtn({ countBeforeDone, itemId, className }) {
 
-  const handleCloseWithCounting = useCallback(
-    () => {
-      if(times < countBeforeDone) {
-        return setTimes(times + 1)
-      }
-      console.log('delete item', itemId)
-    },
-    [itemId, times, countBeforeDone],
-  )
-  return (
-    <div>
-      <ItemAction onClick={handleCloseWithCounting}/>
-      <span>{`done ${times} times`}</span>
-    </div>
-  )
-})
+    const [times, setTimes] = useState(0)
+
+    const handleCloseWithCounting = useCallback(
+      () => {
+        if(times < countBeforeDone) {
+          return setTimes(times + 1)
+        }
+        console.log('delete item', itemId)
+      },
+      [itemId, times, countBeforeDone],
+    )
+    return (
+      <div className={cn(className, styles.btnWrapper)}>
+        <div className={cn(times > 0 ? styles.padded : '')}>
+          <ItemAction onClick={handleCloseWithCounting}/>
+        </div>
+        { times > 0 && <span>{`done ${times} times`}</span> }
+      </div>
+    )
+  }
+)
