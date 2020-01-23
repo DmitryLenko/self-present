@@ -1,4 +1,12 @@
+import { createSelector } from 'reselect'
+import { addTaskReducer } from '../reducers/addTask.reducer'
 import { RootState } from '../rootReducer'
-import { Task } from '../../types/tasks.types'
 
-export const getCount = (state: RootState): Task[] => state.tasks
+const getTasksToDoStore = (state: RootState): ReturnType<typeof addTaskReducer> => state.tasksToDo
+
+export const getTasksToDo = createSelector(
+  getTasksToDoStore,
+  tasksToDoStore => Object.values(tasksToDoStore),
+)
+
+export const getDoneTask = (): [] => []

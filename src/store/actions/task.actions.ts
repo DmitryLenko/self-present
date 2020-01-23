@@ -1,5 +1,5 @@
 import { ADD, REMOVE, COPY } from '../types/tasks.types'
-import { Task } from '../../types/tasks.types'
+import { Task } from '../../core/task/task.types'
 
 export const add = (item: Task) => ({
   type: ADD,
